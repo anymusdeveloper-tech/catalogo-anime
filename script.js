@@ -1,10 +1,15 @@
 fetch('anime.json')
-  .then(res => res.json())
+  .then(response => response.json())
   .then(data => {
     const catalogo = document.getElementById('catalogo');
-    const animesA = data["A"];
+    catalogo.innerHTML = '';
 
-    animesA.forEach(anime => {
+    if (!data.A) {
+      catalogo.innerHTML = '<p>No hay animes en la letra A</p>';
+      return;
+    }
+
+    data.A.forEach(anime => {
       const card = document.createElement('div');
       card.className = 'card';
 
@@ -18,4 +23,9 @@ fetch('anime.json')
 
       catalogo.appendChild(card);
     });
+  })
+  .catch(error => {
+    console.error(error);
+    document.getElementById('catalogo').innerHTML =
+      '<p>Error cargando el catálogo</p>';
   });

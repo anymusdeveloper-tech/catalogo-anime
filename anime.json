@@ -1,0 +1,39 @@
+{
+  "A": [
+    {
+      "id": "another",
+      "nombre": "Another",
+      "temporadas": [
+        { "nombre": "Temporada 1", "gb": 8 }
+      ],
+      "genero": ["Horror", "Misterio", "Seinen"],
+      "anio": 2012,
+      "sinopsis": "Una maldición mortal afecta a una clase escolar, provocando muertes misteriosas.",
+      "imagen": "img/another.jpg"
+    },
+    {
+      "id": "ao-no-exorcist",
+      "nombre": "Ao no Exorcist",
+      "temporadas": [
+        { "nombre": "Temporada 1", "gb": 12 },
+        { "nombre": "Temporada 2", "gb": 10 },
+        { "nombre": "OVA", "gb": 2 }
+      ],
+      "genero": ["Acción", "Fantasía", "Shounen"],
+      "anio": 2011,
+      "sinopsis": "Rin descubre que es hijo de Satanás y decide convertirse en exorcista.",
+      "imagen": "img/ao-no-exorcist.jpg"
+    },
+    {
+      "id": "assassins-pride",
+      "nombre": "Assassins Pride",
+      "temporadas": [
+        { "nombre": "Temporada 1", "gb": 7 }
+      ],
+      "genero": ["Fantasía"],
+      "anio": 2019,
+      "sinopsis": "Un asesino debe entrenar a una noble sin talento mágico.",
+      "imagen": "img/assassins-pride.jpg"
+    }
+  ]
+}

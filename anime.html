@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime Detalle</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header>
+    <h1 id="anime-nombre"></h1>
+    <p class="subtitulo">Catálogo Anime</p>
+    <button onclick="window.location.href='index.html'">Volver al catálogo</button>
+  </header>
+
+  <main>
+    <img id="anime-imagen" alt="Imagen del Anime">
+    <p id="anime-sinopsis"></p>
+    <p>Género: <span id="anime-genero"></span> | Año: <span id="anime-ano"></span></p>
+
+    <h3>Temporadas</h3>
+    <div id="lista-temporadas"></div>
+
+    <button id="btn-agregar-carrito">Agregar al carrito</button>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>

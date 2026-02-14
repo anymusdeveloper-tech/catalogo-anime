@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Detalle Anime</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+  <a href="index.html">⬅ Volver</a>
+  <div id="cart-icon" onclick="openCartModal()">
+    🛒 <span id="cart-count">0</span>
+  </div>
+</header>
+
+<main>
+  <div id="detail-container"></div>
+</main>
+
+<!-- MISMO MODAL -->
+<div id="cart-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeCartModal()">×</span>
+    <h2>Tu Carrito</h2>
+    <ul id="cart-items"></ul>
+    <div class="cart-total">
+      <p>Total GB: <span id="total-gb">0</span> GB</p>
+      <p>Total: <span id="total-price">0</span> CUP</p>
+    </div>
+    <div class="cart-actions">
+      <button id="clear-cart-btn">Vaciar Carrito</button>
+      <button id="buy-btn">Comprar por WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<script src="detail.js"></script>
+</body>
+  </html>

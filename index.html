@@ -2,18 +2,39 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Anymus-PC | Catálogo Anime</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Anime Store</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header>
-  <h1>Anymus-PC</h1>
-  <p class="subtitulo">Catálogo Anime</p>
+  <h1>Anime Store</h1>
+  <div id="cart-icon" onclick="openCartModal()">
+    🛒 <span id="cart-count">0</span>
+  </div>
 </header>
 
-<main id="catalogo"></main>
+<main>
+  <div id="anime-container" class="grid"></div>
+</main>
 
-<script src="script.js"></script>
+<!-- MODAL CARRITO -->
+<div id="cart-modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeCartModal()">×</span>
+    <h2>Tu Carrito</h2>
+    <ul id="cart-items"></ul>
+    <div class="cart-total">
+      <p>Total GB: <span id="total-gb">0</span> GB</p>
+      <p>Total: <span id="total-price">0</span> CUP</p>
+    </div>
+    <div class="cart-actions">
+      <button id="clear-cart-btn">Vaciar Carrito</button>
+      <button id="buy-btn">Comprar por WhatsApp</button>
+    </div>
+  </div>
+</div>
+
+<script src="index.js"></script>
 </body>
-</html>
+    </html>

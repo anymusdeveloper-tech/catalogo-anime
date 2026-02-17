@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anymus-PC Catalogo Anime</title>
+
+<link rel="stylesheet" href="style.css">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+<style>
+.cart-modal { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); justify-content:center; align-items:center; z-index:1000; }
+.cart-modal-content { background:#222; color:#fff; padding:20px; border-radius:10px; width:90%; max-width:400px; max-height:80%; overflow-y:auto; }
+.cart-item { display:flex; justify-content:space-between; align-items:center; margin:5px 0; font-size:14px; }
+.cart-item button { background:#ff4d4d; border:none; color:#fff; padding:2px 6px; border-radius:4px; cursor:pointer; }
+.added { background:#555 !important; cursor:not-allowed !important; }
+</style>
+
+</head>
+<body>
+<header class="navbar">
+  <div class="logo">
+    <h1 class="logo-title">⚡ANYMUS PC</h1>
+    <span class="logo-sub">Catálogo Anime Holguín</span>
+  </div>
+
+  <div class="search-container" id="searchContainer">
+    <i class="ri-search-line search-icon" id="searchIcon"></i>
+    <input type="text" id="searchInput" placeholder="Buscar anime...">
+  </div>
+
+  <nav>
+    <button id="catalogBtn" class="btn-nav"><i class="ri-apps-line"></i> Catálogo</button>
+    <button id="estrenosBtn" class="btn-nav"><i class="ri-fire-line"></i> Estrenos</button>
+  </nav>
+
+  <button id="cartBtn" class="cart-btn">
+    <i class="ri-shopping-cart-2-line"></i>
+    <span id="cartCount" class="cart-count">0</span>
+  </button>
+</header>
+
+<main>
+  <div id="animeGrid" class="grid"></div>
+</main>
+
+<footer>
+  © 2026 Anymus-PC Todos los derechos reservados | Desarrollado por: <strong>Anymus</strong>
+</footer>
+
+<!-- Carrito -->
+<div class="cart-modal" id="cartModal">
+  <div class="cart-modal-content">
+    <h2>🛒 Tu Carrito</h2>
+    <div id="cartItems"></div>
+    <p>Total GB: <span id="totalGb">0</span></p>
+    <p>Total: <span id="totalPrice">0</span> CUP</p>
+    <button class="btn-primary" id="whatsappBtn">📲 Comprar</button>
+    <button class="btn-secondary" onclick="closeCart()">❌ Cerrar</button>
+    <button class="btn-secondary" onclick="clearCart()">🗑️ Vaciar</button>
+  </div>
+</div>
+
+<script src="data.js"></script>
+<script src="cart.js"></script>
+ <script>
+document.addEventListener("DOMContentLoaded", () => {
+    updateCartCount();
+    syncButtons();
+});
+
+// 🔥 MUY IMPORTANTE
+window.addEventListener("pageshow", () => {
+    updateCartCount();
+    syncButtons();
+});
+</script>
+
+<script>
+// Render grid de animes
+document.addEventListener("DOMContentLoaded",()=>{
+  const grid = document.getElementById("animeGrid");
+  const searchInput = document.getElementById("searchInput");
+  const estrenosBtn = document.getElementById("estrenosBtn");
+  const catalogBtn = document.getElementById("catalogBtn");
+  const searchContainer = document.getElementById("searchContainer");
+  const searchIcon = document.getElementById("searchIcon");
+  let currentMode="catalogo";
+
+  searchIcon.addEventListener("click",()=>{
+    searchContainer.classList.toggle("active");
+    searchInput.focus();
+  });
+
+  function renderAnimes(filter=""){
+    grid.innerHTML="";
+    Object.keys(animeData).forEach(letter=>{
+      animeData[letter].forEach((anime,index)=>{
+        if(currentMode==="estrenos" && !anime.estreno) return;
+        if(!anime.title.toLowerCase().includes(filter.toLowerCase())) return;
+
+        const card = document.createElement("div");
+        card.className = "card";
+        card.innerHTML = `
+          <div style="position:relative">
+            ${anime.estreno?'<div class="badge">ESTRENO</div>':''}
+            <img src="${anime.image}" alt="${anime.title}">
+          </div>
+          <h3>${anime.title}</h3>
+          <p>${anime.year} • ${anime.genre}</p>
+          <p class="price">${anime.basePrice} CUP</p>
+          <button class="btn-primary" data-name="${anime.title} (Completo)" onclick="addToCart({name:'${anime.title} (Completo)',gb:${anime.seasons.reduce((a,s)=>a+s.gb,0)},price:${anime.basePrice}},this)">Agregar al carrito</button>
+          <a href="detail.html?letter=${letter}&id=${index}">
+            <button class="btn-secondary">Ver Detalles</button>
+          </a>
+        `;
+        grid.appendChild(card);
+      });
+    });
+    syncButtons();
+  }
+
+  searchInput.addEventListener("input", e => renderAnimes(e.target.value));
+  estrenosBtn.addEventListener("click", ()=>{ currentMode="estrenos"; renderAnimes(searchInput.value); });
+  catalogBtn.addEventListener("click", ()=>{ currentMode="catalogo"; renderAnimes(searchInput.value); });
+
+  renderAnimes();
+});
+</script>
+</body>
+</html>

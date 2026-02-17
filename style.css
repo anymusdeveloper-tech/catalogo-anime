@@ -1,0 +1,351 @@
+/* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
+}
+
+body{
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0,140,255,0.12), transparent 40%),
+    radial-gradient(circle at 85% 70%, rgba(0,80,255,0.10), transparent 45%),
+    linear-gradient(135deg,#05070d,#0b0f1a 60%,#0e1628);
+  color:#e5e7eb;
+  min-height:100vh;
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* Efecto abstracto tipo ondas audiovisuales */
+body::before{
+  content:"";
+  position:fixed;
+  width:120%;
+  height:120%;
+  top:-10%;
+  left:-10%;
+  background:
+    repeating-linear-gradient(
+      120deg,
+      rgba(0,140,255,0.03) 0px,
+      rgba(0,140,255,0.03) 2px,
+      transparent 2px,
+      transparent 60px
+    );
+  z-index:-1;
+}
+
+
+/* ================= NAVBAR ================= */
+.navbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:18px 40px;
+  background:rgba(5,7,13,0.95);
+  backdrop-filter:blur(10px);
+  border-bottom:1px solid rgba(0,140,255,0.2);
+  box-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
+
+
+/* ================= LOGO ================= */
+.logo-title{
+  font-size:30px;
+  font-weight:800;
+  letter-spacing:2px;
+  background:linear-gradient(90deg,#00c3ff,#3b82f6);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  text-shadow:0 0 15px rgba(0,140,255,0.4);
+}
+
+.logo-icon{
+  margin-right:8px;
+  font-size:24px;
+  color:#00c3ff;
+}
+
+.logo-sub{
+  font-size:12px;
+  color:#7dd3fc;
+  letter-spacing:1px;
+}
+
+/* ================= NAV BUTTONS ================= */
+.btn-nav{
+  background:transparent;
+  border:1px solid rgba(0,140,255,0.4);
+  padding:8px 16px;
+  border-radius:10px;
+  color:#cbd5e1;
+  cursor:pointer;
+  transition:.25s ease;
+  font-weight:500;
+}
+
+.btn-nav:hover{
+  background:linear-gradient(90deg,#1e3a8a,#2563eb);
+  color:white;
+  box-shadow:0 0 15px rgba(37,99,235,0.5);
+}
+
+/* ================= SEARCH ================= */
+.search-container{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.search-container input{
+  width:0;
+  padding:10px;
+  border-radius:25px;
+  border:1px solid rgba(0,140,255,0.3);
+  outline:none;
+  transition:.4s ease;
+  opacity:0;
+  background:#0b0f1a;
+  color:white;
+  box-shadow:0 0 0 rgba(0,0,0,0);
+}
+
+.search-container.active input{
+  width:240px;
+  opacity:1;
+  padding-left:18px;
+  box-shadow:0 0 15px rgba(0,140,255,0.3);
+}
+
+.search-container input:focus{
+  border-color:#00c3ff;
+  box-shadow:0 0 20px rgba(0,195,255,0.5);
+}
+
+.search-icon{
+  font-size:18px;
+  cursor:pointer;
+  color:#00c3ff;
+  transition:.3s;
+}
+
+.search-icon:hover{
+  transform:scale(1.15);
+  color:#38bdf8;
+}
+
+
+/* ================= CART ================= */
+.cart-btn{
+  position:relative;
+  background:linear-gradient(90deg,#1e3a8a,#2563eb);
+  border:none;
+  padding:9px 14px;
+  border-radius:12px;
+  cursor:pointer;
+  color:white;
+  font-size:16px;
+  transition:.25s ease;
+  box-shadow:0 0 10px rgba(37,99,235,0.4);
+}
+
+.cart-btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 20px rgba(37,99,235,0.6);
+}
+
+.cart-count{
+  position:absolute;
+  top:-6px;
+  right:-6px;
+  background:#00c3ff;
+  color:#0b1120;
+  font-size:11px;
+  font-weight:bold;
+  padding:4px 6px;
+  border-radius:50%;
+}
+
+/* ================= GRID ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:30px;
+  padding:50px;
+}
+
+/* ================= CARDS ================= */
+.card{
+  background:#111827;
+  border-radius:16px;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+  border:1px solid #1f2937;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card:hover{
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 50px rgba(37,99,235,0.3);
+  border-color:#2563eb;
+}
+
+.card img{
+  width:100%;
+  height:250px;
+  object-fit:cover;
+}
+
+.card h3{
+  margin:12px 10px 6px 10px;
+  color:#3b82f6;
+  font-size:16px;
+  transition: color 0.3s ease;
+}
+
+.card:hover h3{
+  color:#60a5fa;
+}
+
+.price{
+  margin:0 10px 12px 10px;
+  font-weight:bold;
+  color:#60a5fa;
+  transition: color 0.3s ease;
+}
+
+.card:hover .price{
+  color:#3b82f6;
+}
+
+/* ================= BADGE ESTRENO ================= */
+.badge{
+  position:absolute;
+  top:10px;
+  left:10px;
+  background:#2563eb;
+  color:white;
+  padding:4px 10px;
+  border-radius:20px;
+  font-size:12px;
+  font-weight:bold;
+  transition: background 0.3s ease;
+}
+
+.card:hover .badge{
+  background:#3b82f6;
+}
+
+
+/* ================= BOTONES ================= */
+.btn-primary{
+  width:100%;
+  margin-top:10px;
+  padding:10px;
+  border-radius:10px;
+  border:1px solid rgba(0,140,255,0.3);
+  cursor:pointer;
+  font-weight:bold;
+  background:#0b0f1a;
+  color:#00c3ff;
+  transition:.25s ease;
+}
+
+.btn-primary:hover{
+  background:linear-gradient(90deg,#0077ff,#00c3ff);
+  color:#05070d;
+  box-shadow:0 0 25px rgba(0,140,255,0.6);
+}
+
+
+.btn-secondary{
+  width:100%;
+  margin-top:8px;
+  padding:9px;
+  border-radius:10px;
+  border:1px solid #00c3ff;
+  cursor:pointer;
+  background:transparent;
+  color:#38bdf8;
+  transition:.25s ease;
+}
+
+.btn-secondary:hover{
+  background:#00c3ff;
+  color:#0b1120;
+  box-shadow:0 0 15px rgba(0,195,255,0.6);
+}
+
+/* ================= DETAIL ================= */
+.detail-container{
+  max-width:1100px;
+  margin:50px auto;
+  padding:40px;
+  background:#111827;
+  border-radius:20px;
+  border:1px solid rgba(0,140,255,0.2);
+  box-shadow:0 20px 50px rgba(0,0,0,0.5);
+}
+
+.section-title{
+  font-size:22px;
+  margin-bottom:25px;
+  color:#38bdf8;
+}
+
+/* ================= TEMPORADAS ================= */
+.season-item{
+  padding:12px;
+  margin-bottom:8px;
+  border-radius:10px;
+  border:1px solid rgba(0,140,255,0.2);
+  transition:.2s ease;
+}
+
+.season-item:hover{
+  border-color:#00c3ff;
+  box-shadow:0 0 15px rgba(0,140,255,0.4);
+}
+
+/* ================= MODAL CARRITO ================= */
+.cart-modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.85);
+  display:none;
+  justify-content:center;
+  align-items:center;
+  z-index:1000;
+}
+
+.cart-modal-content{
+  background:#0f172a;
+  padding:25px;
+  border-radius:15px;
+  width:90%;
+  max-width:420px;
+  border:1px solid rgba(0,140,255,0.2);
+  max-height:80vh;
+  overflow-y:auto;
+}
+
+.cart-item button{
+  background:#ef4444;
+  border:none;
+  color:white;
+  padding:4px 8px;
+  border-radius:6px;
+  cursor:pointer;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  text-align:center;
+  padding:20px;
+  background:#0f172a;
+  border-top:1px solid rgba(0,140,255,0.2);
+  font-size:13px;
+  color:#7dd3fc;
+}

@@ -60,13 +60,13 @@ function renderCart(){
     const div = document.createElement("div");
     div.className = "cart-item";
     div.innerHTML = `
-      <span>${item.name} - ${item.gb}GB - ${item.price} CUP</span>
+      <span>${item.name} - ${item.gb.toFixed(1)}GB - ${item.price} CUP</span>
       <button onclick="removeFromCart(${index})">❌</button>
     `;
     container.appendChild(div);
   });
 
-  if(totalGbEl) totalGbEl.textContent = totalGb.toFixed(2);
+  if(totalGbEl) totalGbEl.textContent = totalGb.toFixed(1); // total con 1 decimal
   if(totalPriceEl) totalPriceEl.textContent = totalPrice;
 }
 
@@ -124,12 +124,12 @@ function sendToWhatsApp(){
   let totalPrice = 0;
 
   cart.forEach(item=>{
-    msg += `• ${item.name} - ${item.gb}GB - ${item.price} CUP%0A`;
+    msg += `• ${item.name} - ${item.gb.toFixed(1)}GB - ${item.price} CUP%0A`;
     totalGb += item.gb;
     totalPrice += item.price;
   });
 
-  msg += `%0A📦 Total GB: ${totalGb.toFixed(2)}GB%0A💰 Total: ${totalPrice} CUP`;
+  msg += `%0A📦 Total GB: ${totalGb.toFixed(1)}GB%0A💰 Total: ${totalPrice} CUP`;
 
   window.open(`https://wa.me/5351711962?text=${msg}`,"_blank");
 }

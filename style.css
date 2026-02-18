@@ -638,3 +638,34 @@ footer{
     font-size: 20px;
   }
 }
+/* ================= CART FLOAT MOBILE ================= */
+@media (max-width: 768px) {
+  #cartBtn {
+    position: fixed;      /* siempre flotando */
+    bottom: 20px;         /* separacion inferior */
+    right: 20px;          /* separacion derecha */
+    width: 50px;          /* tamaño compacto */
+    height: 50px;
+    border-radius: 50%;   /* botón redondo */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;       /* por encima de todo */
+    box-shadow: 0 0 15px rgba(0,140,255,0.5);
+    padding: 0;
+  }
+
+  /* Icono centrado dentro */
+  #cartBtn i {
+    font-size: 22px;
+  }
+
+  /* Contador pequeño y legible */
+  #cartCount {
+    top: -6px;
+    right: -6px;
+    font-size: 11px;
+    padding: 3px 5px;
+  }
+}
+

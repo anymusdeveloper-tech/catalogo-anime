@@ -668,4 +668,32 @@ footer{
     padding: 3px 5px;
   }
 }
+/* ================= RESPONSIVE TABLES DETAIL ================= */
+@media (max-width: 768px) {
+  .seasons-wrapper {
+    overflow-x: auto;        /* permite scroll horizontal */
+    -webkit-overflow-scrolling: touch; /* suave en iOS */
+  }
+
+  .seasons-table {
+    width: 100%;
+    min-width: 500px;        /* fuerza scroll si no cabe */
+    border-collapse: collapse;
+  }
+
+  .seasons-table th,
+  .seasons-table td {
+    padding: 6px 8px;       /* reduce espacio para caber */
+    font-size: 13px;
+    white-space: nowrap;     /* evita que texto se rompa en varias lineas */
+  }
+
+  .seasons-table button {
+    padding: 6px 8px;       /* ajusta botón dentro de la celda */
+    font-size: 12px;
+    width: 100%;             /* opcional: hace que el botón llene la celda */
+    box-sizing: border-box;
+  }
+}
+
 

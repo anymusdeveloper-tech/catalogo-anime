@@ -293,7 +293,7 @@ D: [
     estreno: false,
     seasons: [
       { season: 1, episodes: 23, gb: 3.9, price: 40 },
-      { season: 2, episodes: 10, gb: 2.3, price: 20 }
+      { season: 2, episodes: 10, gb: 2.2, price: 20 }
     ]
   },
 
@@ -495,3 +495,4 @@ G: [
   Y: [],
   Z: []
 };
+

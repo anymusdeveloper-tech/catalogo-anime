@@ -173,7 +173,9 @@ body::before{
   grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
   gap:30px;
   padding:50px;
+  align-items:stretch; /* 🔥 CLAVE */
 }
+
 
 /* ================= CARDS ================= */
 .card{
@@ -184,7 +186,25 @@ body::before{
   flex-direction:column;
   border:1px solid #1f2937;
   transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  height:100%;
 }
+
+.card-content{
+  display:flex;
+  flex-direction:column;
+  flex:1;
+  padding:0 10px 12px 10px;
+}
+.card-content{
+  display:flex;
+  flex-direction:column;
+  flex:1;
+}
+
+.genres{
+  min-height:40px; /* fuerza espacio uniforme */
+}
+
 
 .card:hover{
   transform: translateY(-8px) scale(1.02);
@@ -200,6 +220,7 @@ body::before{
 
 .card h3{
   margin:12px 10px 6px 10px;
+  min-height:48px;
   color:#3b82f6;
   font-size:16px;
   transition: color 0.3s ease;
@@ -210,10 +231,20 @@ body::before{
 }
 
 .price{
-  margin:0 10px 12px 10px;
-  font-weight:bold;
-  color:#60a5fa;
-  transition: color 0.3s ease;
+  margin-bottom:12px;
+  min-height:22px; /* 🔥 estabiliza altura del precio */
+  font-weight:700;
+  font-size:16px;
+  color:#38bdf8;
+  text-shadow:0 0 8px rgba(56,189,248,0.4);
+}
+
+.card-buttons{
+  margin-top:auto;
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  min-height:86px; /* 🔥 reserva espacio fijo para los dos botones */
 }
 
 .card:hover .price{
@@ -443,4 +474,54 @@ footer{
   }
 
 }
+/* ================= DETAIL MOBILE FIX ================= */
+@media (max-width:768px){
 
+  .detail-container{
+    padding:20px;
+    margin:20px;
+  }
+
+  .detail-flex{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+  }
+
+  .detail-image{
+    width:100%;
+    max-width:260px;
+    margin:auto;
+  }
+
+  .detail-info{
+    width:100%;
+  }
+
+  .detail-info h1{
+    font-size:20px;
+  }
+
+  .genres{
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px;
+  }
+
+  .genre{
+    font-size:12px;
+    padding:4px 8px;
+  }
+
+  .detail-actions{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:15px;
+  }
+
+  .detail-actions button{
+    width:100%;
+  }
+
+}

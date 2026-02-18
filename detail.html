@@ -258,7 +258,9 @@ document.addEventListener("DOMContentLoaded",()=>{
 
   const totalSeasons = anime.seasons.length;
   const totalEpisodes = anime.seasons.reduce((a,s)=>a+(s.episodes||0),0);
-  const totalGb = anime.seasons.reduce((a,s)=>a+s.gb,0);
+  const totalGb = anime.seasons.reduce((a,s)=>a + Number(s.gb), 0);
+  const totalGbFixed = Number(totalGb.toFixed(1));
+
 
   let seasonsRows = "";
 
@@ -266,7 +268,7 @@ document.addEventListener("DOMContentLoaded",()=>{
     seasonsRows += `
       <tr>
         <td>Temporada ${index+1}</td>
-        <td>${season.gb} GB</td>
+        <td>${Number(season.gb).toFixed(1)} GB</td>
         <td>${season.episodes || "?"}</td>
         <td>${season.price || 0} CUP</td>
         <td>
@@ -312,7 +314,7 @@ document.addEventListener("DOMContentLoaded",()=>{
             </div>
             <div class="info-item">
               <span>GB Totales</span>
-              <strong>${totalGb}</strong>
+              <strong>${totalGbFixed.toFixed(1)} GB</strong>
             </div>
             <div class="info-item">
               <span>Precio Completo</span>
@@ -327,7 +329,7 @@ document.addEventListener("DOMContentLoaded",()=>{
           <button class="btn-primary"
             data-name="${anime.title} (Completo)"
             onclick="addToCart(
-              {name:'${anime.title} (Completo)', gb:${totalGb}, price:${anime.basePrice}},
+              {name:'${anime.title} (Completo)', gb:${totalGbFixed}, price:${anime.basePrice}},
               this
             )">
             Agregar Completo

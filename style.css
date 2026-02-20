@@ -449,6 +449,9 @@ footer{
 /* ---------- MOBILE GRANDE ---------- */
 @media (max-width: 768px){
 
+  body{
+    padding-top: 130px;
+}
   /* NAVBAR */
   .navbar{
     flex-wrap: wrap;
@@ -637,6 +640,7 @@ footer{
   }
 
 }
+
 
 
 

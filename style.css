@@ -250,10 +250,11 @@ body::before{
 .genres{
   display:flex;
   flex-wrap:wrap;
-  gap:8px;
+  gap:6px;
 }
 
 .genre{
+  max-width:100%;
   white-space:normal;
 }
 
@@ -569,13 +570,22 @@ footer{
 /* TABLET Y MOBILE */
 @media (max-width: 768px){
 
+  .navbar .subtitle{
+    display:none;
+  }
+
+  .navbar{
+    padding:15px 20px;
+  }
+
   /* CONTENEDOR */
   .detail-container{
-    width:95%;
-    margin:20px auto;
-    padding:20px;
-    box-sizing:border-box;
-  }
+  width:95%;
+  max-width:1100px;
+  margin:30px auto;
+  padding:25px;
+  box-sizing:border-box; /* ESTO ES CLAVE */
+}
 
   /* TOP EN COLUMNA */
   .detail-top{
@@ -649,6 +659,26 @@ footer{
 
 }
 
+/* --- FIX TITULO DETAIL --- */
+
+.detail-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+}
+
+.detail-header h2{
+  margin:0;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:unset !important;
+  max-width:100%;
+}
+
+.btn-back{
+  flex-shrink:0;
+    }
 
 
 

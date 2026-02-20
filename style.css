@@ -685,4 +685,75 @@ footer{
     }
 
 
+/* ============================= */
+/* 🔧 FIXES GENERALES MOBILE */
+/* ============================= */
+
+
+/* ---- 1️⃣ NAVBAR NO TAPE CONTENIDO ---- */
+/* Ajusta el 120px si tu navbar es más alta o más baja */
+body{
+  padding-top:120px;
+}
+
+
+/* ---- 2️⃣ NAVBAR MÁS COMPACTA EN TELÉFONO ---- */
+@media (max-width:768px){
+
+  .navbar{
+    padding:10px 15px;
+  }
+
+  .navbar h1{
+    font-size:20px;
+  }
+
+  .navbar p{
+    font-size:12px;
+    margin:2px 0 0 0;
+  }
+
+}
+
+
+/* ---- 3️⃣ GÉNEROS QUE NO SE SALGAN ---- */
+
+.genres{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+}
+
+.genre{
+  max-width:100%;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+
+/* ---- 4️⃣ TÍTULO DETAIL QUE NO SE RECORTE ---- */
+
+.detail-header{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  flex-wrap:wrap;
+  overflow:visible !important;
+}
+
+.detail-header h2{
+  margin:0;
+  white-space:normal !important;
+  overflow:visible !important;
+  text-overflow:unset !important;
+  max-width:100%;
+}
+
+.detail-container{
+  overflow:visible !important;
+}
+
+.btn-back{
+  flex-shrink:0;
+}
 

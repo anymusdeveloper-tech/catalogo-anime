@@ -245,14 +245,13 @@ body::before{
 }
 
 .genres{
-  min-height:40px; /* fuerza espacio uniforme */
   display:flex;
   flex-wrap:wrap;
   gap:8px;
 }
 
 .genre{
-  max-width:100%;
+  white-space:normal;
 }
 
 .card:hover{
@@ -638,4 +637,5 @@ footer{
   }
 
 }
+
 

@@ -680,6 +680,9 @@ footer{
   flex-shrink:0;
     }
 
+.detail-container{
+  overflow:visible !important;
+    }
 
 
 

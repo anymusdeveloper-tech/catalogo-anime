@@ -44,7 +44,7 @@ body::before{
   display:flex;
   align-items:center;
   justify-content:space-between;
-  padding:18px 40px;
+  padding:10px 40px;
   background:rgba(5,7,13,0.95);
   backdrop-filter:blur(10px);
   border-bottom:1px solid rgba(0,140,255,0.2);
@@ -452,7 +452,9 @@ footer{
   }
 
   .logo-title{
-    font-size: 22px;
+    font-size:14px;
+    line-height:1.2;
+    max-width: 70%;
   }
 
   .btn-nav{
@@ -515,150 +517,7 @@ footer{
   .search-container.active input{
     width: 140px;
   }
-
 }
-/* ================= DETAIL MOBILE FIX ================= */
-@media (max-width:768px){
-
-  .detail-container{
-    padding:20px;
-    margin:20px;
-  }
-
-  .detail-flex{
-    display:flex;
-    flex-direction:column;
-    gap:20px;
-  }
-
-  .detail-image{
-    width:100%;
-    max-width:260px;
-    margin:auto;
-  }
-
-  .detail-info{
-    width:100%;
-  }
-
-  .detail-info h1{
-    font-size:20px;
-  }
-
-  .genres{
-    display:flex;
-    flex-wrap:wrap;
-    gap:6px;
-  }
-
-  .genre{
-    font-size:12px;
-    padding:4px 8px;
-  }
-
-  .detail-actions{
-    display:flex;
-    flex-direction:column;
-    gap:10px;
-    margin-top:15px;
-  }
-
-  .detail-actions button{
-    width:100%;
-  }
-
-}
-/* ================= MOBILE DETAIL ================= */
-@media (max-width: 480px) {
-
-  /* Ajuste general de container */
-  .detail-container {
-    padding: 20px;
-    margin: 20px 10px;
-  }
-  .detail-container {
-  width: 95%;
-  max-width: 900px;
-  margin: 20px auto;
-  box-sizing: border-box;
-}
-
-  /* Ajuste de la imagen y info para que no queden muy grandes */
-  .detail-top {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .detail-image img {
-    width: 100%;
-    height: auto; /* mantiene proporción */
-    max-height: 200px;
-    object-fit: cover;
-    border-radius: 12px;
-  }
-
-  /* Info del anime */
-  .detail-info h2 {
-    font-size: 18px;
-  }
-
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    font-size: 13px;
-  }
-
-  .info-item span {
-    font-size: 12px;
-  }
-
-  /* Sinopsis */
-  .sinopsis {
-    font-size: 14px;
-  }
-
-  /* Botones adaptables */
-  .detail-container .btn-primary,
-  .detail-container .btn-secondary {
-    width: 100%;
-    font-size: 13px;
-    padding: 8px;
-    margin-top: 5px;
-    box-sizing: border-box;
-  }
-
-  /* Tabla de temporadas */
-  .seasons-table {
-    font-size: 12px;
-  }
-
-  .seasons-table button {
-    font-size: 11px;
-    padding: 5px 6px;
-  }
-
-  /* Botón carrito flotante en detail (igual que en index) */
-  #cartBtn {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-    box-shadow: 0 0 15px rgba(0,140,255,0.5);
-  }
-
-  #cartBtn i {
-    font-size: 20px;
-  }
-}
-
 /* ================= CART FLOAT MOBILE ================= */
 @media (max-width: 768px) {
   #cartBtn {
@@ -689,32 +548,87 @@ footer{
     padding: 3px 5px;
   }
 }
-/* ================= RESPONSIVE TABLES DETAIL ================= */
-@media (max-width: 768px) {
+/* ================= DETAIL RESPONSIVE CLEAN ================= */
 
-  .seasons-wrapper {
-    overflow-x: hidden;
+/* TABLET Y MOBILE */
+@media (max-width: 768px){
+
+  /* CONTENEDOR */
+  .detail-container{
+    width:95%;
+    margin:20px auto;
+    padding:20px;
+    box-sizing:border-box;
   }
 
-  .seasons-table {
-    width: 100%;
-    min-width: 0;
-    table-layout: fixed;
-    border-collapse: collapse;
+  /* TOP EN COLUMNA */
+  .detail-top{
+    flex-direction:column;
+    gap:20px;
+  }
+
+  /* IMAGEN */
+  .detail-image{
+    width:100%;
+    max-width:260px;
+    margin:auto;
+    overflow:hidden;
+  }
+
+  .detail-image img{
+    width:100%;
+    height:auto;
+    display:block;
+  }
+
+  /* INFO */
+  .detail-info{
+    width:100%;
+  }
+
+  .detail-info h2{
+    font-size:20px;
+  }
+
+  /* GRID INFO */
+  .info-grid{
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    font-size:13px;
+  }
+
+  .info-item strong{
+    word-break:normal;
+  }
+
+  /* SINOPSIS */
+  .sinopsis{
+    font-size:14px;
+  }
+
+  /* BOTÓN COMPLETO */
+  .detail-info .btn-primary{
+    width:100%;
+  }
+
+  /* ================= TABLA TEMPORADAS ================= */
+
+  .seasons-wrapper{
+    overflow-x:auto;   /* permitimos scroll si hace falta */
+  }
+
+  .seasons-table{
+    min-width:500px;   /* evita que se comprima feo */
   }
 
   .seasons-table th,
-  .seasons-table td {
-    padding: 6px 6px;
-    font-size: 12px;
-    white-space: normal;
-    word-break: break-word;
+  .seasons-table td{
+    white-space:nowrap; /* no partir palabras */
+    font-size:13px;
   }
 
-  .seasons-table button {
-    width: 100%;
-    font-size: 11px;
-    padding: 6px;
+  .seasons-table button{
+    white-space:nowrap;
   }
+
 }
-

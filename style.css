@@ -590,7 +590,6 @@ footer{
   /* INFO */
   .detail-info{
     width:100%;
-    overflow:hidden;
   }
 
   .detail-info h2{
@@ -639,3 +638,4 @@ footer{
   }
 
 }
+
